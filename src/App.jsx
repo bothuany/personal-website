@@ -28,7 +28,7 @@ function App() {
 
       <Box sx={{ marginLeft: "20px", marginRight: "20px" }}>
         <br id="about_me" />
-
+        <br />
         <AboutMeLocation />
         <AboutMe />
 
