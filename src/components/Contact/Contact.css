@@ -1,0 +1,14 @@
+#profile_image img {
+    min-width: 40px;
+}
+
+.icon {
+    margin: 0 30px;
+}
+
+@media screen and (max-width: 600px) {
+    #copyright {
+        margin-bottom: 300px;
+
+    }
+}
