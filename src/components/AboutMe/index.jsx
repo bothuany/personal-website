@@ -18,7 +18,7 @@ function AboutMe() {
       >
         <Box>
           <h1 id="terminal" style={{ float: "left" }}>
-            <span style={{ float: "left" }}> &#62;_&nbsp;</span>
+            <span style={{ float: "left" }}> &#62;&nbsp;</span>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter.changeDelay(delay).typeString(user.name).start();
