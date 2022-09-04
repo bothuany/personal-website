@@ -10,7 +10,7 @@ function Projects() {
   const [isLoading, setIsLoading] = useState(true);
 
   const githubApiString = (username) =>
-    `https://api.github.com/users/${username}/repos`;
+    `https://api.github.com/users/${username}/repos?per_page=100`;
 
   useEffect(() => {
     axios
