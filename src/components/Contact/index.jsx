@@ -12,6 +12,7 @@ import "./Contact.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -110,27 +111,53 @@ function Contact() {
       <br />
       <br />
       <br />
-      <StyledBadge
-        overlap="circular"
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        variant="dot"
-        sx={{ marginRight: "20px" }}
-      >
-        <Avatar
-          id="profile_image"
-          sx={{ width: "50px", height: "50px" }}
-          alt="me"
-          src={`https://avatars.githubusercontent.com/${user.github_username}`}
-        />
-      </StyledBadge>
 
-      <Button
-        sx={{ textTransform: "lowercase" }}
-        variant="contained"
-        href={`mailto:${user.contact.emai}`}
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
       >
-        👋 {user.contact.email}
-      </Button>
+        <StyledBadge
+          overlap="circular"
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          variant="dot"
+          sx={{ marginRight: "20px" }}
+        >
+          <Avatar
+            id="profile_image"
+            sx={{ width: "70px", height: "70px" }}
+            alt="me"
+            src={`https://avatars.githubusercontent.com/${user.github_username}`}
+          />
+        </StyledBadge>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Button
+            sx={{ textTransform: "lowercase", margin: "10px" }}
+            variant="contained"
+            href={`mailto:${user.contact.emai}`}
+          >
+            👋 {user.contact.email}
+          </Button>
+          <Button
+            sx={{ textTransform: "none" }}
+            variant="contained"
+            href={user.contact.cv}
+            target="_blank"
+          >
+            📄 You can find my CV here!
+          </Button>
+        </Box>
+      </Box>
+
       <br />
       <br />
       <br />

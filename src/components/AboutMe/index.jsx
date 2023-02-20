@@ -46,10 +46,10 @@ function AboutMe() {
         spacing={{ xs: 0, md: 3 }}
         style={{ justifyContent: "center" }}
       >
-        <Grid item xs={10} md={5}>
+        <Grid item xs={10} md={4}>
           <img src={img} alt="animation" className="center" />
         </Grid>
-        <Grid item xs={10} md={7}>
+        <Grid item xs={10} md={8}>
           <Box
             sx={{
               marginTop: "20px",
