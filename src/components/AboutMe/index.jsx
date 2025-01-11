@@ -65,9 +65,8 @@ function AboutMe() {
           style={{
             textAlign: "center",
             fontFamily: "Source Code Pro",
-            background: "linear-gradient(45deg, #2196F3, #21CBF3)",
+            color: "#FFFFFF",
             WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
             fontSize: "2.5rem",
             marginBottom: "3rem",
           }}

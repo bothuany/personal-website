@@ -10,6 +10,8 @@ import ProjectsLocation from "./components/Navbar/ViewLocations/ProjectsLocation
 import ContactLocation from "./components/Navbar/ViewLocations/ContactLocation";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Skills from "./components/Skills";
+import SkillsLocation from "./components/Navbar/ViewLocations/SkillsLocation";
 
 function App() {
   useEffect(() => {
@@ -37,6 +39,11 @@ function App() {
         <br />
         <AboutMeLocation />
         <AboutMe />
+
+        <br id="skills" />
+        <br />
+        <SkillsLocation />
+        <Skills />
 
         <br id="projects" />
         <br />

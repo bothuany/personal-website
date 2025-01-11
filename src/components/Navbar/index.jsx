@@ -54,10 +54,12 @@ function Navbar() {
   React.useEffect(() => {
     if (tab === "about_me_tab") {
       setValue(0);
-    } else if (tab === "projects_tab") {
+    } else if (tab === "skills_tab") {
       setValue(1);
-    } else if (tab === "contact_tab") {
+    } else if (tab === "projects_tab") {
       setValue(2);
+    } else if (tab === "contact_tab") {
+      setValue(3);
     }
   }, [tab]);
 
@@ -104,14 +106,19 @@ function Navbar() {
             {...a11yProps(0)}
           />
           <Tab
+            onClick={() => jump("skills")}
+            label="Skills"
+            {...a11yProps(1)}
+          />
+          <Tab
             onClick={() => jump("projects")}
             label="Projects"
-            {...a11yProps(1)}
+            {...a11yProps(2)}
           />
           <Tab
             onClick={() => jump("contact")}
             label="Contact"
-            {...a11yProps(2)}
+            {...a11yProps(3)}
           />
         </Tabs>
       </Box>

@@ -14,16 +14,28 @@
   },
   "skills": [
     {
-      "category": "Frontend",
-      "items": ["React", "JavaScript", "HTML5", "CSS3", "Material-UI"]
+      "category": "Languages",
+      "items": ["Java", "C#", "JavaScript", "Python", "Go"]
     },
     {
-      "category": "Backend",
-      "items": ["Node.js", "Python", "Java"]
+      "category": "Web Development",
+      "items": ["Spring", ".NET", "Node.js", "Express"]
+    },
+    {
+      "category": "Frameworks and Libraries",
+      "items": ["Bootstrap", "React", "React Native"]
+    },
+    {
+      "category": "Databases",
+      "items": ["MongoDB", "MySQL", "PostgreSQL"]
     },
     {
       "category": "Tools",
-      "items": ["Git", "VS Code", "Docker"]
+      "items": ["Git", "Docker", "Postman"]
+    },
+    {
+      "category": "Cloud Services",
+      "items": ["AWS"]
     }
   ]
 }
