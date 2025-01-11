@@ -1,15 +1,37 @@
 {
-    "name": "Recep Batuhan Dikmen",
-    "job": "Software Developer",
-    "github_username": "bothuany",
-    "description": "I'm currently a third-grade Computer Engineering student at Eskişehir Technical University. Since I was little, I've been interested in computers and applications. I wanted to be an engineer because I considered myself talented in numerics. That's why I wanted to be a computer engineer. I'm currently improving myself in artificial intelligence, deep learning, machine learning and flutter.",
-    "contact": {
-        "sub_title": "Get in touch",
-        "title": "Let’s work together",
-        "description": "",
-        "email": "rbdikmen@gmail.com",
-        "linkedin_username": "recep-batuhan-dikmen",
-        "instagram_username": "bothuany",
-        "cv": "https://flowcv.com/resume/8s8k0h48u9"
+  "name": "Recep Batuhan Dikmen",
+  "job": "Software Developer",
+  "github_username": "bothuany",
+  "description": "Born in Denizli in June 2001, I am a Computer Engineering student passionate about computers and applications. Currently in my third year at Eskişehir Technical University, my focus is on backend development, where I continually enhance my skills. Proficient in Java, Python, and C#, I have expertise in frameworks like Spring, .NET, and Node.js. My knowledge extends to full-stack development, data science, and deep learning. Additionally, I have experience with JavaScript, React, and a solid understanding of artificial intelligence and machine learning. Committed to continuous learning, I have earned certifications in machine learning, project management, and deep learning. Welcome to my personal website, where I share my journey in the field of Computer Engineering.",
+  "contact": {
+    "sub_title": "Get in touch",
+    "title": "Let’s work together",
+    "description": "",
+    "email": "rbdikmen@gmail.com",
+    "linkedin_username": "recep-batuhan-dikmen",
+    "instagram_username": "bothuany",
+    "cv": "https://flowcv.com/resume/8s8k0h48u9"
+  },
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "JavaScript", "HTML5", "CSS3", "Material-UI"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Python", "Java"]
+    },
+    {
+      "category": "Tools",
+      "items": ["Git", "VS Code", "Docker"]
     }
+  ],
+  "experience": [
+    {
+      "company": "Company Name",
+      "position": "Position",
+      "duration": "2022 - Present",
+      "description": "Description of work..."
+    }
+  ]
 }

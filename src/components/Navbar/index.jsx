@@ -45,7 +45,6 @@ function jump(toWhereById) {
 
 function Navbar() {
   const { tab } = useTab();
-
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -67,12 +66,38 @@ function Navbar() {
       sx={{
         width: "100%",
         position: "fixed",
-        backgroundColor: "rgb(10,25,41);",
-        zIndex: "3",
+        backgroundColor: "rgba(10,25,41,0.95)",
+        backdropFilter: "blur(8px)",
+        zIndex: 1100,
+        borderBottom: "1px solid rgba(255,255,255,0.1)",
+        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={value} onChange={handleChange} aria-label="tabs" centered>
+      <Box>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="tabs"
+          centered
+          sx={{
+            "& .MuiTabs-indicator": {
+              backgroundColor: "#2196f3",
+            },
+            "& .MuiTab-root": {
+              color: "rgba(255,255,255,0.7)",
+              fontSize: "1rem",
+              textTransform: "none",
+              minWidth: 120,
+              "&.Mui-selected": {
+                color: "#2196f3",
+              },
+              "&:hover": {
+                color: "#ffffff",
+                opacity: 1,
+              },
+            },
+          }}
+        >
           <Tab
             onClick={() => jump("about_me")}
             label="About Me"

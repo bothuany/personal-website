@@ -26,7 +26,13 @@ function App() {
     >
       <Navbar />
 
-      <Box sx={{ marginLeft: "20px", marginRight: "20px" }}>
+      <Box
+        sx={{
+          marginLeft: "20px",
+          marginRight: "20px",
+          paddingTop: "80px",
+        }}
+      >
         <br id="about_me" />
         <br />
         <AboutMeLocation />
