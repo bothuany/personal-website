@@ -25,13 +25,5 @@
       "category": "Tools",
       "items": ["Git", "VS Code", "Docker"]
     }
-  ],
-  "experience": [
-    {
-      "company": "Company Name",
-      "position": "Position",
-      "duration": "2022 - Present",
-      "description": "Description of work..."
-    }
   ]
 }
