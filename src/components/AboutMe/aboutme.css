@@ -35,8 +35,8 @@
 }
 
 #terminal {
-  width: auto;
-  min-width: auto;
+  width: 800px;
+  min-width: 280px;
   height: auto;
   padding: 1rem 1.5rem;
   background-color: black;

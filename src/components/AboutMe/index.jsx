@@ -57,9 +57,6 @@ function AboutMe() {
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
               border: "1px solid rgba(255, 255, 255, 0.1)",
               transition: "all 0.3s ease",
-              width: "auto",
-              minWidth: "280px",
-              maxWidth: "100%",
               boxSizing: "border-box",
               margin: "0 auto",
             }}
