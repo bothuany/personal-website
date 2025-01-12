@@ -13,20 +13,24 @@ function AboutMe() {
     <Box
       sx={{
         width: "100%",
-        maxWidth: "2000px",
+        maxWidth: "1600px",
         mx: "auto",
-        px: { xs: 2, md: 4, lg: 6 },
+        px: { xs: 1, sm: 2, md: 3 },
+        boxSizing: "border-box",
       }}
     >
       <Box
         sx={{
           fontFamily: "Source Code Pro",
-          padding: "2rem",
+          padding: { xs: "1rem", sm: "1.5rem", md: "2rem" },
           backdropFilter: "blur(4px)",
           animation: "fadeIn 1s ease-out",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          width: "100%",
+          maxWidth: "100%",
+          margin: "0 auto",
         }}
       >
         <Box
@@ -35,13 +39,15 @@ function AboutMe() {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
+            maxWidth: "1200px",
+            margin: "0 auto",
           }}
         >
           <h1
             id="terminal"
             style={{
               background: "linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%)",
-              padding: { xs: "1rem", sm: "1.5rem" },
+              padding: "1.5rem",
               borderRadius: "12px",
               color: "#fff",
               marginBottom: "2rem",
@@ -51,13 +57,11 @@ function AboutMe() {
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
               border: "1px solid rgba(255, 255, 255, 0.1)",
               transition: "all 0.3s ease",
-              width: { xs: "95%", sm: "auto" },
+              width: "auto",
+              minWidth: "280px",
               maxWidth: "100%",
-              overflowX: "auto",
-              "&:hover": {
-                transform: "translateY(-5px)",
-                boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
-              },
+              boxSizing: "border-box",
+              margin: "0 auto",
             }}
           >
             <div
@@ -132,7 +136,17 @@ function AboutMe() {
           maxWidth: "100%",
         }}
       >
-        <Grid item xs={12} md={4} lg={3}>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          lg={3}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Box
             component="img"
             src={img}
@@ -163,7 +177,7 @@ function AboutMe() {
                 display: "block",
                 marginBottom: "1rem",
                 textIndent: "2rem",
-                maxWidth: "1400px",
+                maxWidth: "100%",
                 margin: "0 auto",
               },
             }}

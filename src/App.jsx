@@ -44,7 +44,10 @@ function App() {
         fontFamily: "Open Sans",
         position: "relative",
         minHeight: "100vh",
+        maxWidth: "100vw",
+        overflowX: "hidden",
       }}
+      className="container"
     >
       <NeuralBackground />
       <Navbar />
