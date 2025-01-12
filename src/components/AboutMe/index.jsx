@@ -15,8 +15,9 @@ function AboutMe() {
         width: "100%",
         maxWidth: "1600px",
         mx: "auto",
-        px: { xs: 1, sm: 2, md: 3 },
+        px: { xs: 2, sm: 3, md: 4 },
         boxSizing: "border-box",
+        overflow: "hidden",
       }}
     >
       <Box
@@ -120,17 +121,17 @@ function AboutMe() {
         sx={{
           justifyContent: "center",
           alignItems: "stretch",
-          padding: { xs: "1rem", sm: "1.5rem", md: "2.5rem", lg: "3rem" },
+          padding: { xs: "1rem", sm: "1.5rem", md: "2rem" },
           background:
             "linear-gradient(135deg, rgba(33,150,243,0.05) 0%, rgba(33,150,243,0.02) 100%)",
           borderRadius: "20px",
           backdropFilter: "blur(8px)",
-          marginX: "auto",
-          marginY: "1rem",
+          margin: "1rem auto",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.05)",
           border: "1px solid rgba(255, 255, 255, 0.1)",
           transition: "transform 0.3s ease",
-          maxWidth: "100%",
+          maxWidth: "1600px",
+          width: "auto",
         }}
       >
         <Grid

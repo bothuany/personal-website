@@ -64,15 +64,29 @@ function Skills() {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ my: 4 }}>
+    <Container 
+      sx={{ 
+        my: 4,
+        px: { xs: 2, sm: 3, md: 4 },
+        maxWidth: "1600px !important",
+        overflow: "hidden",
+        mx: "auto",
+      }}
+    >
       <Box
         sx={{
           py: 5,
-          px: { xs: 2, md: 4 },
+          px: { xs: 2, md: 3 },
           paddingBottom: 10,
-          background: "rgba(10,25,41,0.7)",
+          background: "rgba(255, 255, 255, 0.02)",
+          borderRadius: "15px",
           backdropFilter: "blur(10px)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.05)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
           width: "100%",
+          maxWidth: "1600px",
+          boxSizing: "border-box",
+          mx: "auto",
         }}
       >
         <Typography
