@@ -10,111 +10,161 @@ function AboutMe() {
   const delay = 80;
 
   return (
-    <Box>
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: "2000px",
+        mx: "auto",
+        px: { xs: 2, md: 4, lg: 6 },
+      }}
+    >
       <Box
         sx={{
           fontFamily: "Source Code Pro",
           padding: "2rem",
           backdropFilter: "blur(4px)",
+          animation: "fadeIn 1s ease-out",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
           <h1
             id="terminal"
             style={{
-              float: "left",
-              background: "black",
-              padding: "1rem",
-              borderRadius: "8px",
+              background: "linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%)",
+              padding: { xs: "1rem", sm: "1.5rem" },
+              borderRadius: "12px",
               color: "#fff",
               marginBottom: "2rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              transition: "all 0.3s ease",
+              width: { xs: "95%", sm: "auto" },
+              maxWidth: "100%",
+              overflowX: "auto",
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
+              },
             }}
           >
-            <span style={{ float: "left", color: "#2196F3" }}>
-              {" "}
-              &#62;&nbsp;
-            </span>
-            <Typewriter
-              options={{
-                delay: delay,
-                cursor: "▋",
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                minWidth: "fit-content",
               }}
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString(user.name)
-                  .pauseFor(1000)
-                  .deleteAll()
-                  .typeString(user.name)
-                  .start();
-              }}
-            />
+            >
+              <span
+                style={{
+                  color: "#2196F3",
+                  position: "absolute",
+                  marginTop: "2px",
+                  textShadow: "0 0 8px rgba(33, 150, 243, 0.4)",
+                }}
+              >
+                &#62;&nbsp;
+              </span>
+              <div style={{ marginLeft: "35px", width: "100%" }}>
+                <Typewriter
+                  options={{
+                    delay: delay,
+                    cursor: "▋",
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString(
+                        '<span style="color: #FFFFFF">user info</span>'
+                      )
+                      .pauseFor(500)
+                      .typeString("<br />")
+                      .typeString('<span style="color: #FFC107">Loading</span>')
+                      .typeString(".")
+                      .pauseFor(300)
+                      .typeString(".")
+                      .pauseFor(300)
+                      .typeString(".")
+                      .pauseFor(300)
+                      .deleteChars(10)
+                      .typeString(
+                        `<span style="color: #2196F3">[INFO]</span> Name: <span style="color: #E91E63">${user.name}</span>`
+                      )
+                      .typeString("<br />")
+                      .typeString(
+                        `<span style="color: #2196F3">[INFO]</span> Position: <span style="color: #E91E63">${user.job}</span>`
+                      )
+                      .start();
+                  }}
+                />
+              </div>
+            </div>
           </h1>
         </Box>
       </Box>
-      <Box
-        data-aos="fade-up"
-        data-aos-once="true"
-        sx={{
-          marginBottom: "2rem",
-          textAlign: "center",
-          marginTop: "2rem",
-          clear: "both",
-        }}
-      >
-        <h2
-          style={{
-            textAlign: "center",
-            fontFamily: "Source Code Pro",
-            color: "#FFFFFF",
-            WebkitBackgroundClip: "text",
-            fontSize: "2.5rem",
-            marginBottom: "3rem",
-          }}
-        >
-          {user.job}
-        </h2>
-      </Box>
       <Grid
         container
-        spacing={3}
+        spacing={4}
         sx={{
           justifyContent: "center",
-          alignItems: "center",
-          padding: "2rem",
-          background: "rgba(33,150,243,0.03)",
-          borderRadius: "15px",
-          backdropFilter: "blur(4px)",
+          alignItems: "stretch",
+          padding: { xs: "1rem", sm: "1.5rem", md: "2.5rem", lg: "3rem" },
+          background:
+            "linear-gradient(135deg, rgba(33,150,243,0.05) 0%, rgba(33,150,243,0.02) 100%)",
+          borderRadius: "20px",
+          backdropFilter: "blur(8px)",
+          marginX: "auto",
+          marginY: "1rem",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.05)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          transition: "transform 0.3s ease",
+          maxWidth: "100%",
         }}
       >
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} lg={3}>
           <Box
             component="img"
             src={img}
             alt="Animation"
             sx={{
-              width: "95%",
+              width: "100%",
               maxWidth: "500px",
               height: "auto",
-              borderRadius: "10px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              borderRadius: "15px",
+              boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
               display: "block",
               margin: "0 auto",
+              transition: "transform 0.3s ease",
             }}
           />
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} lg={9}>
           <Box
             sx={{
               color: "#9ba9b4",
-              fontSize: "1.2rem",
+              fontSize: { xs: "1.1rem", md: "1.2rem", lg: "1.3rem" },
               lineHeight: "1.8",
               textAlign: "justify",
-              padding: "1rem",
+              padding: { xs: "1.5rem", md: "2rem", lg: "3rem" },
+              background: "rgba(255, 255, 255, 0.02)",
+              borderRadius: "15px",
               "& span": {
                 display: "block",
                 marginBottom: "1rem",
                 textIndent: "2rem",
-                animation: "fadeIn 1s ease-out",
+                maxWidth: "1400px",
+                margin: "0 auto",
               },
             }}
           >

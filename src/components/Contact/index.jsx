@@ -12,7 +12,6 @@ import "./Contact.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -118,13 +117,13 @@ function Contact() {
           alignItems: "center",
           flexDirection: "row",
           justifyContent: "center",
+          gap: "20px",
         }}
       >
         <StyledBadge
           overlap="circular"
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           variant="dot"
-          sx={{ marginRight: "20px" }}
         >
           <Avatar
             id="profile_image"
@@ -138,17 +137,31 @@ function Contact() {
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
+            gap: "10px",
+            minWidth: "250px",
           }}
         >
           <Button
-            sx={{ textTransform: "lowercase", margin: "10px" }}
+            fullWidth
+            sx={{
+              textTransform: "lowercase",
+              fontSize: "0.9rem",
+              padding: "8px 0px",
+              minHeight: "40px",
+            }}
             variant="contained"
-            href={`mailto:${user.contact.emai}`}
+            href={`mailto:${user.contact.email}`}
           >
             👋 {user.contact.email}
           </Button>
           <Button
-            sx={{ textTransform: "none" }}
+            fullWidth
+            sx={{
+              textTransform: "none",
+              fontSize: "0.9rem",
+              padding: "8px 0px",
+              minHeight: "40px",
+            }}
             variant="contained"
             href={user.contact.cv}
             target="_blank"

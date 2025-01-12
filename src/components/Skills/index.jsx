@@ -22,12 +22,13 @@ const getSkillIcon = (skill) => {
     Bootstrap: "/images/skills/bootstrap.svg",
     React: "/images/skills/react.svg",
     "React Native": "/images/skills/react-native.svg",
+    Angular: "/images/skills/angular.svg",
 
     // Databases
     MongoDB: "/images/skills/mongodb.svg",
     MySQL: "/images/skills/mysql.svg",
     PostgreSQL: "/images/skills/postgresql.svg",
-
+    MSSQL: "/images/skills/mssql.svg",
     // Tools
     Git: "/images/skills/git.svg",
     Docker: "/images/skills/docker.svg",
@@ -53,7 +54,13 @@ function Skills() {
 
   const item = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
   };
 
   return (
@@ -64,9 +71,7 @@ function Skills() {
           px: { xs: 2, md: 4 },
           paddingBottom: 10,
           background: "rgba(10,25,41,0.7)",
-          borderRadius: "15px",
           backdropFilter: "blur(10px)",
-          border: "1px solid rgba(255,255,255,0.1)",
           width: "100%",
         }}
       >
@@ -139,6 +144,7 @@ function Skills() {
                           <img
                             src={getSkillIcon(skill)}
                             alt={skill}
+                            loading="lazy"
                             style={{
                               width: "32px",
                               height: "32px",

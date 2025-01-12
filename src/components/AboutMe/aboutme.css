@@ -36,27 +36,49 @@
 
 #terminal {
   width: auto;
-  min-width: 300px;
+  min-width: auto;
   height: auto;
   padding: 1rem 1.5rem;
   background-color: black;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
+  position: relative;
+}
+
+#terminal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #2196f3;
+  box-shadow: 0 0 2px rgba(33, 150, 243, 0.2), 0 0 4px rgba(33, 150, 243, 0.2),
+    0 0 6px rgba(33, 150, 243, 0.2), 0 0 8px rgba(33, 150, 243, 0.2);
+  animation: pulse 3s ease-in-out infinite;
 }
 
 @media screen and (max-width: 600px) {
   #terminal {
-    width: 90vw;
-    font-size: 110%;
+    width: 90%;
+    min-width: unset;
+    font-size: 90%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  .descriptionOfMe {
+    font-size: 100%;
+    padding: 1rem !important;
   }
 }
 
 @media screen and (min-width: 601px) {
   #terminal {
-    width: 600px;
+    width: 800px;
     font-size: 180%;
   }
 }
@@ -72,19 +94,61 @@
   }
 }
 
-.Typewriter__cursor {
-  color: #2196f3;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
+@keyframes rainbow {
   0% {
-    opacity: 1;
+    background-position: 0% 50%;
   }
   50% {
-    opacity: 0;
+    background-position: 100% 50%;
   }
   100% {
-    opacity: 1;
+    background-position: 0% 50%;
   }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    box-shadow: 0 0 2px rgba(33, 150, 243, 0.2), 0 0 4px rgba(33, 150, 243, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 2px rgba(33, 150, 243, 0.4), 0 0 4px rgba(33, 150, 243, 0.4),
+      0 0 6px rgba(33, 150, 243, 0.4), 0 0 8px rgba(33, 150, 243, 0.4),
+      0 0 10px rgba(33, 150, 243, 0.4);
+  }
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 2px rgba(33, 150, 243, 0.2), 0 0 4px rgba(33, 150, 243, 0.2);
+  }
+}
+
+.Typewriter__cursor {
+  color: #fff;
+  font-weight: bold;
+  animation: cursor-blink 1.2s infinite;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+    0 0 40px rgba(255, 255, 255, 0.7);
+  position: relative;
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 0.4;
+    transform: scale(0.95) skewX(-5deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.05) skewX(5deg);
+  }
+}
+
+.descriptionOfMe {
+  position: relative;
+  transition: all 0.3s ease;
 }

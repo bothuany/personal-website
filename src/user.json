@@ -2,10 +2,10 @@
   "name": "Recep Batuhan Dikmen",
   "job": "Software Developer",
   "github_username": "bothuany",
-  "description": "Born in Denizli in June 2001, I am a Computer Engineering student passionate about computers and applications. Currently in my third year at Eskişehir Technical University, my focus is on backend development, where I continually enhance my skills. Proficient in Java, Python, and C#, I have expertise in frameworks like Spring, .NET, and Node.js. My knowledge extends to full-stack development, data science, and deep learning. Additionally, I have experience with JavaScript, React, and a solid understanding of artificial intelligence and machine learning. Committed to continuous learning, I have earned certifications in machine learning, project management, and deep learning. Welcome to my personal website, where I share my journey in the field of Computer Engineering.",
+  "description": "I'm a problem solver at heart who loves turning ideas into reality through code. As a Junior Software Developer, I thrive on creating efficient solutions that make a real difference. My passion lies in backend development, but I enjoy exploring the full spectrum of software engineering – from crafting clean APIs to experimenting with AI.\n\nConstantly curious and always learning, I believe in writing code that not only works but tells a story. Let's collaborate and build something amazing together!",
   "contact": {
     "sub_title": "Get in touch",
-    "title": "Let’s work together",
+    "title": "Let's work together",
     "description": "",
     "email": "rbdikmen@gmail.com",
     "linkedin_username": "recep-batuhan-dikmen",
@@ -23,11 +23,11 @@
     },
     {
       "category": "Frameworks and Libraries",
-      "items": ["Bootstrap", "React", "React Native"]
+      "items": ["Bootstrap", "React", "React Native", "Angular"]
     },
     {
       "category": "Databases",
-      "items": ["MongoDB", "MySQL", "PostgreSQL"]
+      "items": ["MongoDB", "MySQL", "PostgreSQL", "MSSQL"]
     },
     {
       "category": "Tools",

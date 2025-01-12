@@ -4,10 +4,14 @@ import user from "../../user.json";
 import Box from "@mui/material/Box";
 import Project from "./Project";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import { Virtuoso } from "react-virtuoso";
 
 function Projects() {
   const [myProjects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 6;
 
   const githubApiString = (username) =>
     `https://api.github.com/users/${username}/repos?per_page=100`;
@@ -25,6 +29,8 @@ function Projects() {
       return new Date(b.created_at) - new Date(a.created_at);
     });
   }
+
+  const paginatedProjects = myProjects.slice(0, page * itemsPerPage);
 
   return (
     <Box>
@@ -53,18 +59,28 @@ function Projects() {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {!isLoading &&
-          myProjects.map((myProject, index) => (
+          paginatedProjects.map((myProject, index) => (
             <Grid item xs={12} sm={4} md={4} key={index}>
               <Project
                 name={myProject.name}
-                description={myProject.description}
-                created_at={myProject.created_at}
                 language={myProject.language}
                 html_url={myProject.html_url}
               />
             </Grid>
           ))}
       </Grid>
+
+      {paginatedProjects.length < myProjects.length && (
+        <Box sx={{ textAlign: "center", mt: 4 }}>
+          <Button
+            variant="contained"
+            onClick={() => setPage((prev) => prev + 1)}
+            sx={{ textTransform: "none" }}
+          >
+            Load More
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }
