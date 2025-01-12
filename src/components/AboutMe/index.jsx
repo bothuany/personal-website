@@ -104,7 +104,7 @@ function AboutMe() {
                       )
                       .typeString("<br />")
                       .typeString(
-                        `<span style="color: #919191">[INFO]</span> <span style="color: #919191">Position: </span><span style="color: #FFFFFF">${user.job}</span>`
+                        `<span style="color: #919191">[INFO]</span> <span style="color: #919191">Title: </span><span style="color: #FFFFFF">${user.job}</span>`
                       )
                       .start();
                   }}

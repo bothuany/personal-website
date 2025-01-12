@@ -61,8 +61,17 @@ export default function Project({
               variant="subtitle1"
               color="text.secondary"
               component="div"
+              sx={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: "1",
+                WebkitBoxOrient: "vertical",
+                lineHeight: "1.5em",
+                maxHeight: "3em",
+              }}
             >
-              {description}
+              {description ? description : "No description available"}
             </Typography>
             <Typography
               variant="subtitle1"
