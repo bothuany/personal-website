@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Project from "./Project";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-import { Virtuoso } from "react-virtuoso";
 
 function Projects() {
   const [myProjects, setProjects] = useState([]);
@@ -63,6 +62,8 @@ function Projects() {
             <Grid item xs={12} sm={4} md={4} key={index}>
               <Project
                 name={myProject.name}
+                description={myProject.description}
+                created_at={myProject.created_at}
                 language={myProject.language}
                 html_url={myProject.html_url}
               />

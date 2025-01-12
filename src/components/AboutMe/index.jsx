@@ -91,7 +91,7 @@ function AboutMe() {
                       )
                       .pauseFor(500)
                       .typeString("<br />")
-                      .typeString('<span style="color: #FFC107">Loading</span>')
+                      .typeString('<span style="color: #FFFFFF">Loading</span>')
                       .typeString(".")
                       .pauseFor(300)
                       .typeString(".")
@@ -100,11 +100,11 @@ function AboutMe() {
                       .pauseFor(300)
                       .deleteChars(10)
                       .typeString(
-                        `<span style="color: #2196F3">[INFO]</span> Name: <span style="color: #E91E63">${user.name}</span>`
+                        `<span style="color: #919191">[INFO]</span> <span style="color: #919191">Name: </span> <span style="color: #FFFFFF">${user.name}</span>`
                       )
                       .typeString("<br />")
                       .typeString(
-                        `<span style="color: #2196F3">[INFO]</span> Position: <span style="color: #E91E63">${user.job}</span>`
+                        `<span style="color: #919191">[INFO]</span> <span style="color: #919191">Position: </span><span style="color: #FFFFFF">${user.job}</span>`
                       )
                       .start();
                   }}
