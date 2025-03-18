@@ -35,7 +35,7 @@ export default function Navbar() {
     const element = document.querySelector(href);
     if (element) {
       // Get the navbar height plus some additional padding
-      const navbarHeight = 64; // 64px (h-16) + 16px padding
+      const navbarHeight = 64; // 64px (h-16)
 
       // Calculate the element's position relative to the viewport
       const elementPosition = element.getBoundingClientRect().top;
