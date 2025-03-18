@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import TechImage from "./tech-image";
 
 type TechCategory = {
@@ -133,33 +133,30 @@ export default function TechStack() {
   return (
     <section id="skills" className="py-10">
       <h2 className="text-3xl font-bold mb-8 text-foreground">Tech Stack</h2>
-      <div className="space-y-8">
+      <div className="space-y-6">
         {techStack.map((category) => (
-          <div key={category.category} className="space-y-4">
+          <div key={category.category} className="space-y-3">
             <h3 className="text-xl font-semibold text-foreground">
               {category.category}
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div className="flex flex-wrap gap-2">
               {category.technologies.map((tech) => (
-                <Card
+                <Badge
                   key={tech.name}
-                  className="border border-border bg-card hover:shadow-md transition-shadow"
+                  variant="secondary"
+                  className="px-3 py-2 text-sm font-medium flex items-center gap-2 hover:bg-secondary/80 transition-colors"
                 >
-                  <CardContent className="flex flex-col items-center justify-center p-4">
-                    <div className="relative h-10 w-10 mb-2">
-                      <TechImage
-                        src={tech.icon || "/placeholder.svg"}
-                        alt={tech.name}
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    </div>
-                    <span className="text-sm text-card-foreground">
-                      {tech.name}
-                    </span>
-                  </CardContent>
-                </Card>
+                  <div className="relative h-5 w-5">
+                    <TechImage
+                      src={tech.icon || "/placeholder.svg"}
+                      alt={tech.name}
+                      width={20}
+                      height={20}
+                      className="object-contain"
+                    />
+                  </div>
+                  {tech.name}
+                </Badge>
               ))}
             </div>
           </div>

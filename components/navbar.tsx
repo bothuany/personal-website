@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { MoonIcon, SunIcon, MenuIcon } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { MoonIcon, SunIcon, MenuIcon } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "About", href: "#about" },
@@ -29,18 +29,35 @@ export default function Navbar() {
     { name: "Projects", href: "#projects" },
     { name: "Resume", href: "#resume" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      // Get the navbar height plus some additional padding
+      const navbarHeight = 64; // 64px (h-16) + 16px padding
+
+      // Calculate the element's position relative to the viewport
+      const elementPosition = element.getBoundingClientRect().top;
+
+      // Calculate the position to scroll to (current position + element position - navbar height)
+      const offsetPosition =
+        window.pageYOffset + elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border"
+          : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
@@ -56,8 +73,8 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection(item.href)
+                  e.preventDefault();
+                  scrollToSection(item.href);
                 }}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -74,7 +91,11 @@ export default function Navbar() {
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Toggle theme"
               >
-                {theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+                {theme === "dark" ? (
+                  <SunIcon className="h-5 w-5" />
+                ) : (
+                  <MoonIcon className="h-5 w-5" />
+                )}
               </Button>
             )}
 
@@ -92,9 +113,11 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={(e) => {
-                        e.preventDefault()
-                        scrollToSection(item.href)
-                        document.querySelector("[data-radix-collection-item]")?.click()
+                        e.preventDefault();
+                        scrollToSection(item.href);
+                        document
+                          .querySelector("[data-radix-collection-item]")
+                          ?.click();
                       }}
                       className="text-foreground hover:text-primary transition-colors py-2"
                     >
@@ -108,6 +131,5 @@ export default function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }
-
