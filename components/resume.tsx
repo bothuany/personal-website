@@ -19,19 +19,28 @@ export default function Resume() {
             <h3 className="text-xl font-semibold">Experience Highlights</h3>
             <div className="space-y-4">
               <div>
+                <h4 className="font-medium">Associate Software Developer, Turkcell</h4>
+                <p className="text-sm text-muted-foreground">08/2025 – present | İstanbul, Türkiye</p>
+              </div>
+
+              <div>
                 <h4 className="font-medium">Junior Software Developer, ATP Tech</h4>
-                <p className="text-sm text-muted-foreground">07/2024 – present | Remote, Türkiye</p>
-                <p className="text-muted-foreground mt-1">
-                  Working on various projects including TabGıda, Fasdat, Entegre, Sencard, and Polat.
-                </p>
+                <p className="text-sm text-muted-foreground">07/2024 – 07/2025 | Remote, Türkiye</p>
+                <ul className="text-muted-foreground mt-1 text-sm space-y-1">
+                  <li>• Worked on various projects, including TabGıda, Fasdat, Entegre, Sencard, and Polat, developing and optimizing business-critical applications.</li>
+                  <li>• Developed an internal application for querying active users and managing user authentication, as well as another application for password encryption and decryption.</li>
+                  <li>• Worked with .NET, Angular, React, MsSQL in an Agile team</li>
+                </ul>
               </div>
 
               <div>
                 <h4 className="font-medium">Software Development Intern, Eczacıbaşı Bilişim</h4>
                 <p className="text-sm text-muted-foreground">09/2023 – 06/2024 | Remote, Türkiye</p>
-                <p className="text-muted-foreground mt-1">
-                  Contributed to the Nextflow project and developed an HR chatbot for Microsoft Teams.
-                </p>
+                <ul className="text-muted-foreground mt-1 text-sm space-y-1">
+                  <li>• Contributed to the Nextflow project.</li>
+                  <li>• Developed an HR chatbot for Microsoft Teams, integrating it with a web-based React.js panel.</li>
+                  <li>• Worked with .NET, React, MsSQL in an Agile team.</li>
+                </ul>
               </div>
             </div>
           </div>
