@@ -21,6 +21,12 @@ export default function Resume() {
               <div>
                 <h4 className="font-medium">Associate Software Developer, Turkcell</h4>
                 <p className="text-sm text-muted-foreground">08/2025 – present | İstanbul, Türkiye</p>
+                <ul className="text-muted-foreground mt-1 text-sm space-y-1">
+                  <li>• Developing and maintaining corporate applications, including the TAG Learning Management System and the Geleceği Yazanlar evaluation platform.</li>
+                  <li>• Serving as the Team Captain for Oobeya Gamification initiatives, leading team engagement, tracking agile engineering metrics, and fostering a culture of continuous improvement.</li>
+                  <li>• Pioneering AI-assisted development workflows within the team by engineering custom Model Context Protocols (MCPs) for Cursor, optimizing context management and accelerating delivery.</li>
+                  <li>• Worked with Java, Spring, .NET, React, Cursor, MCP, SonarQube, Fortify, Dynatrace, Playwright and VirtualMetric</li>
+                </ul>
               </div>
 
               <div>
