@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MailIcon, LinkedinIcon, GithubIcon } from "lucide-react"
+import { MailIcon, LinkedinIcon, GithubIcon, BookOpenIcon } from "lucide-react"
 
 export default function Contact() {
   return (
@@ -50,6 +50,21 @@ export default function Contact() {
                 <div className="text-left">
                   <div className="font-medium">GitHub</div>
                   <div className="text-sm text-muted-foreground">bothuany</div>
+                </div>
+              </a>
+            </Button>
+
+            <Button variant="outline" asChild className="h-auto py-4 flex-1 justify-start">
+              <a
+                href="https://medium.com/@rbdikmen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <BookOpenIcon className="mr-3 h-5 w-5" />
+                <div className="text-left">
+                  <div className="font-medium">Medium</div>
+                  <div className="text-sm text-muted-foreground">@rbdikmen</div>
                 </div>
               </a>
             </Button>

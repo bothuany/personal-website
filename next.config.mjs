@@ -20,6 +20,11 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    config.resolve.alias["pdfjs-dist"] = "pdfjs-dist/legacy/build/pdf.mjs";
+    return config;
+  },
 };
 
 mergeConfig(nextConfig, userConfig);
