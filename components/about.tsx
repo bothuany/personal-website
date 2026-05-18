@@ -31,10 +31,13 @@ export default function About() {
         </div>
 
         <p className="text-muted-foreground">
-          🌱 Currently working as a Junior Software Developer at ATP Tech, I'm
-          contributing to various business-critical applications while
-          continuously expanding my skill set. Let's connect and create
-          something extraordinary together!
+          🌱 Currently, I'm a software engineer at Turkcell working on enterprise
+          applications and internal platforms. I enjoy building clean, maintainable
+          systems — from microservice architectures with Kafka & Kubernetes to
+          full-stack apps with Spring Boot and React. I also explore ways to
+          integrate AI tooling (Cursor, MCP) into everyday development workflows.
+          Previously worked at ATP Tech and interned at Eczacıbaşı Bilişim,
+          Softtech, OBSS Technology, and TUSAŞ (Turkish Aerospace).
         </p>
       </div>
     </section>
