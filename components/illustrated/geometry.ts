@@ -31,6 +31,8 @@ export const LATTE = { baseline: 1064, minX: 800, maxX: 1180, height: 138, home:
 
 // the framing keeps everything from the window's top down to the keyboard in view
 export const FRAME = { top: 110, bottom: 1340 };
+// on wide, short screens we fill the width and give up the top of the window first
+export const FRAME_MIN = { top: 300, bottom: 1320 };
 
 // coffee mug on the desk: the email link
 export const MUG: Rect = { x: 555, y: 1050, w: 140, h: 140 };

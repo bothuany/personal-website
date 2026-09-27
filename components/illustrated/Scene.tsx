@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ART, CENTER, FRAME, LAMP, LAPTOP_QUAD, LATTE, LEFT_QUAD, MOUSE_GLOW, MUG, MUG_CUP_X, WINDOW, FANS, CASE, bounds, quadMatrix, type Quad, type Rect } from "./geometry";
+import { ART, CENTER, FRAME, FRAME_MIN, LAMP, LAPTOP_QUAD, LATTE, LEFT_QUAD, MOUSE_GLOW, MUG, MUG_CUP_X, WINDOW, FANS, CASE, bounds, quadMatrix, type Quad, type Rect } from "./geometry";
 import LatteCat, { CAT_ASPECT, type CatMode } from "./LatteCat";
 import OS, { type AppId } from "./OS";
 import Terminal from "./Terminal";
@@ -37,13 +37,14 @@ const FOCUS: Record<Exclude<View, "desk">, Rect> = { center: CENTER, left: LEFT_
 
 function cameraFor(view: View, vw: number, vh: number) {
   if (view === "desk") {
-    // cover, but keep the window and the desk in frame; on very wide screens let the sides breathe
-    const top = FRAME.top;
-    const needH = FRAME.bottom - top;
-    const s = Math.min(Math.max(vw / ART.w, vh / (ART.h - 180)), vh / needH);
+    // cover the viewport; only when the screen is very wide and short do the sides show (filled by the backdrop)
+    const prefH = FRAME.bottom - FRAME.top;
+    const minH = FRAME_MIN.bottom - FRAME_MIN.top;
+    const s = Math.min(Math.max(vw / ART.w, vh / (ART.h - 180)), vh / minH);
     const tx = ART.w * s < vw ? (vw - ART.w * s) / 2 : Math.min(0, Math.max(vw - ART.w * s, vw / 2 - 1024 * s));
     const visible = vh / s;
-    const y0 = Math.min(ART.h - visible, Math.max(0, top - Math.max(0, (visible - needH) / 2)));
+    const want = visible >= prefH ? FRAME.top - (visible - prefH) / 2 : Math.max(FRAME.top, FRAME_MIN.bottom - visible);
+    const y0 = Math.min(ART.h - visible, Math.max(0, want));
     return { s, tx, ty: -y0 * s };
   }
   const r = FOCUS[view];
@@ -177,6 +178,7 @@ export default function Scene() {
 
   return (
     <div className={`room ${lights ? "" : "room--dark"} ${booted ? "room--on" : ""} ${booted && lights ? "room--lit" : ""}`}>
+      <div className="room__backdrop" aria-hidden="true" />
       <div className="stage" style={{ width: ART.w, height: ART.h, transform: `translate(${cam.tx}px, ${cam.ty}px) scale(${cam.s})` }}>
         <img className="stage__art" src="/scene/desk-night-4k.webp" alt="" width={ART.w} height={ART.h} draggable={false} />
 
