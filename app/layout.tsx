@@ -1,43 +1,23 @@
-import type React from "react";
-import "@/app/globals.css";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/navbar";
+import type { Metadata, Viewport } from "next";
+import { Caveat, Gabarito, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const ui = Gabarito({ subsets: ["latin", "latin-ext"], variable: "--font-ui" });
+const hand = Caveat({ subsets: ["latin", "latin-ext"], weight: ["500", "700"], variable: "--font-hand" });
+const code = JetBrains_Mono({ subsets: ["latin", "latin-ext"], variable: "--font-code" });
 
-export const metadata = {
-  title: "Recep Batuhan Dikmen | Software Engineer",
-  description:
-    "Portfolio website of Recep Batuhan Dikmen, a Software Engineer specializing in backend development.",
-  generator: "v0.dev",
-  icons: {
-    icon: "/rbd_logo.png",
-    shortcut: "/rbd_logo.png",
-    apple: "/rbd_logo.png",
-  },
+export const metadata: Metadata = {
+  title: "Recep Batuhan Dikmen — Software Developer",
+  description: "Portfolio of Recep Batuhan Dikmen, software developer at Turkcell. Use the screens on his desk and say hi to Latte.",
+  icons: { icon: "/rbd_logo.png" },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = { themeColor: "#2b2d57" };
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} min-h-screen bg-background text-foreground`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en" className={`${ui.variable} ${code.variable} ${hand.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
