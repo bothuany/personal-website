@@ -75,8 +75,7 @@ html.js .subs p { grid-area: 1 / 1; opacity: 0; transition: opacity .6s ease; }
 html.js .subs p.on { opacity: 1; }
 
 /* End credits */
-/* A dark band behind the column keeps the credits readable over the moonlit water. */
-.credits { padding: 40vh 16px 50vh; text-align: center; background: linear-gradient(90deg, transparent 8%, rgba(3, 4, 8, .6) 30%, rgba(3, 4, 8, .6) 70%, transparent 92%); }
+.credits { padding: 40vh 16px 50vh; text-align: center; }
 .credits h2 { margin: 0 0 6px; font-size: 13px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--white); }
 .credits .group { margin: 0 auto 13vh; max-width: 760px; }
 .credits dl { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; margin: 26px 0 0; text-shadow: 0 1px 3px rgba(0, 0, 0, .85), 0 0 16px rgba(0, 0, 0, .6); }
@@ -100,7 +99,6 @@ html.js:not(.no-gl) .contact :focus-visible { outline-color: #1d1714; }
   .matte { font-size: 12px; }
   .matte nav { gap: 16px; }
   #where { max-width: 45vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .credits { background: rgba(3, 4, 8, .55); }
   .credits dl { grid-template-columns: 1fr; gap: 2px; }
   .credits dt { text-align: center; margin-top: 14px; }
   .credits dd { text-align: center; }

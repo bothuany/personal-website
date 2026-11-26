@@ -150,7 +150,7 @@ export type GradeValues = { zen: number[]; hor: number[]; glow: number[]; gaz: n
 export const GRADES: Record<Grade, GradeValues> = {
   dusk:  { zen: [.005, .011, .042], hor: [.17, .115, .15], glow: [1.0, .4, .18], gaz: -.28, gel: -.025, gamt: 1.15, lights: .7, stars: .15, moon: 0, water: [.004, .011, .024], shore: [.03, .028, .045] },
   night: { zen: [.0025, .004, .012], hor: [.028, .034, .056], glow: [.62, .7, .92], gaz: .17, gel: .115, gamt: .26, lights: 1.0, stars: 1.0, moon: 1.0, water: [.002, .005, .011], shore: [.008, .009, .016] },
-  deep:  { zen: [.0015, .0025, .008], hor: [.016, .02, .034], glow: [.62, .7, .92], gaz: .22, gel: .16, gamt: .18, lights: .9, stars: 1.3, moon: 1.0, water: [.0015, .0035, .008], shore: [.005, .006, .011] },
+  deep:  { zen: [.0015, .0025, .008], hor: [.016, .02, .034], glow: [.62, .7, .92], gaz: .22, gel: .16, gamt: .12, lights: .9, stars: 1.3, moon: .3, water: [.0015, .0035, .008], shore: [.005, .006, .011] },
   dawn:  { zen: [.05, .075, .16], hor: [.58, .37, .28], glow: [1.0, .55, .28], gaz: .3, gel: .012, gamt: 1.4, lights: .1, stars: 0, moon: 0, water: [.035, .045, .07], shore: [.16, .13, .16] }
 };
 
