@@ -1,22 +1,30 @@
 import type { Metadata, Viewport } from "next";
-import { Caveat, Gabarito, JetBrains_Mono } from "next/font/google";
+import { Jost } from "next/font/google";
+import { site } from "@/content/site";
 import "./globals.css";
 
-const ui = Gabarito({ subsets: ["latin", "latin-ext"], variable: "--font-ui" });
-const hand = Caveat({ subsets: ["latin", "latin-ext"], weight: ["500", "700"], variable: "--font-hand" });
-const code = JetBrains_Mono({ subsets: ["latin", "latin-ext"], variable: "--font-code" });
+// latin-ext carries ğ, ş, ı and İ.
+const jost = Jost({ subsets: ["latin", "latin-ext"], variable: "--font-jost", display: "swap" });
+
+const title = "RBD | Recep Batuhan Dikmen";
 
 export const metadata: Metadata = {
-  title: "Recep Batuhan Dikmen — Software Developer",
-  description: "Portfolio of Recep Batuhan Dikmen, software developer at Turkcell. Use the screens on his desk and say hi to Latte.",
-  icons: { icon: "/rbd_logo.png" },
+  metadataBase: new URL(site.url),
+  title,
+  description: site.description,
+  openGraph: { title, description: site.description, url: "/", type: "website", images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "RBD over the sea at dusk" }] },
+  twitter: { card: "summary_large_image", title, description: site.description, images: ["/og.jpg"] },
 };
 
-export const viewport: Viewport = { themeColor: "#2b2d57" };
+export const viewport: Viewport = { themeColor: "#000000", viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${ui.variable} ${code.variable} ${hand.variable}`}>
+    <html lang="en" className={jost.variable} suppressHydrationWarning>
+      <head>
+        {/* Hidden starting states (closed mattes, one subtitle at a time) apply only when JS runs. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>{children}</body>
     </html>
   );

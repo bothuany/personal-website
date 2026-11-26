@@ -1,7 +1,9 @@
 node_modules
 .next
 out
-*.blend1
+build
 .env*
-tsconfig.tsbuildinfo
+*.tsbuildinfo
+next-env.d.ts
+.vercel
 .claude/
