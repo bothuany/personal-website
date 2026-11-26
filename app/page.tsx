@@ -1,110 +1,154 @@
-import Film from "@/components/film";
-import { chapters, earlierInternships, experience, projects, school, site, skills } from "@/content/site";
+import Motion from "@/components/motion";
+import { belief, insilode, languages, numbers, path, site, starter, tools } from "@/content/site";
+import { NODE_H, countText, wire } from "@/lib/motion";
 
 export default function Page() {
   const L = site.links;
+  const nodes = Object.fromEntries(insilode.flow.nodes.map(n => [n.id, n]));
   return (
     <>
-      <Film />
-
-      <header className="matte top">
-        <a className="mark" href="#top" aria-label="RBD, back to the start">RBD</a>
-        <nav aria-label="Quick links">
-          <a href="#credits">Credits</a>
-          <a href={L.resume} target="_blank" rel="noopener">Resume</a>
-          <a href={`mailto:${L.email}`}>Email</a>
-        </nav>
-      </header>
-      <div className="matte bottom">
-        <span id="where">Istanbul, blue hour</span>
-        <button id="sound" type="button" aria-pressed="false">Sound off</button>
+      <div className="grain" aria-hidden="true" />
+      <div className="cursor" aria-hidden="true" />
+      <div className="intro" aria-hidden="true">
+        <div className="count"><b>0</b><span>%</span></div>
+        <p className="who mono">{site.name} · {site.city}</p>
       </div>
 
+      <header className="top">
+        <a className="mark" href="#top" aria-label="RBD, back to the top">RBD</a>
+        <nav className="mono" aria-label="Sections">
+          <a href="#insilode">Insilode</a>
+          <a href="#path">Path</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+      <div className="meter mono" aria-hidden="true"><b className="idx">01</b><span className="bar"><i /></span><span className="name">Hello</span></div>
+
       <main id="top">
-        <section className="title" data-g="dusk" data-where="Istanbul, blue hour">
-          <div className="card">
-            <h1 aria-label="RBD, Recep Batuhan Dikmen">RBD</h1>
-            <p className="name" lang="tr">{site.name}</p>
-            <p className="role">{site.role}</p>
-          </div>
-        </section>
-
-        {chapters.map(c => (
-          <section key={c.where} className="chapter" data-g={c.grade} data-where={c.where} style={{ height: `${c.lines.length * 70 + 60}vh` }}>
-            <div className="stage">
-              <p className="super" lang={c.placeLang}>
-                {c.place}
-                <span lang="en">{c.when}</span>
-              </p>
-              <div className="subs">
-                {c.lines.map(line => <p key={line}>{line}</p>)}
-              </div>
+        <section className="hero" data-name="Hello">
+          <div className="stick">
+            <canvas id="dots" aria-hidden="true" />
+            <div className="cap">
+              <h1>{site.name}</h1>
+              <p>Software developer in {site.city}. <b>I build Insilode</b>, an editor that shows how code runs.</p>
             </div>
-          </section>
-        ))}
-
-        <section className="credits" data-g="deep" data-where="Credits" data-flow id="credits" aria-label="Credits">
-          <div className="group">
-            <h2>RBD</h2>
-            <p className="lone">a portfolio by {site.name}</p>
-          </div>
-          <div className="group">
-            <h2>Work</h2>
-            <dl>
-              {experience.map(e => (
-                <Row key={e.title} dt={e.title.toLowerCase()} dd={e.company} small={`${e.years}. ${e.note}`} />
-              ))}
-            </dl>
-            <p className="lone">Earlier internships at {earlierInternships.join(", ")}</p>
-          </div>
-          <div className="group">
-            <h2>Projects</h2>
-            <dl>
-              {projects.map(p => (
-                <Row key={p.name} dt={p.org} dd={p.href ? <a href={p.href} target="_blank" rel="noopener">{p.name}</a> : p.name} small={p.summary} />
-              ))}
-            </dl>
-          </div>
-          <div className="group">
-            <h2>Tools</h2>
-            <dl>{skills.map(s => <Row key={s.group} dt={s.group} dd={s.items} />)}</dl>
-          </div>
-          <div className="group">
-            <h2>School</h2>
-            <dl>{school.map(s => <Row key={s.what} dt={s.what} dd={s.where} small={s.note} />)}</dl>
-          </div>
-          <div className="group">
-            <h2>Shot on</h2>
-            <p className="lone">a few hundred lines of GLSL, no footage</p>
           </div>
         </section>
 
-        <section className="contact" data-g="dawn" data-where="Istanbul, first light">
+        <section className="statement" data-name="Belief">
+          <div className="stick">
+            <p className="say">
+              {belief.lead.split(" ").map((w, i) => <span key={i} className="word">{w} </span>)}
+              {belief.hot.split(" ").map((w, i) => <span key={`h${i}`} className="word hot">{w} </span>)}
+            </p>
+          </div>
+        </section>
+
+        <section className="insilode" id="insilode" data-name="Insilode">
+          <div className="stick">
+            <div className="left">
+              <p className="kicker mono">What I’m building · open source</p>
+              <h2>Insilode</h2>
+              <p className="tag">{insilode.tagline} <em>{insilode.tagHot}</em></p>
+              <ol className="feats">
+                {insilode.features.map((f, i) => <li key={i}><span className="n mono">{String(i + 1).padStart(2, "0")}</span><span>{f}</span></li>)}
+              </ol>
+              <a className="cta" href={insilode.links.try} target="_blank" rel="noopener">Try it in your browser <span aria-hidden="true">→</span></a>
+              <a className="cta ghost" href={insilode.links.github} target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div className="flow" aria-hidden="true">
+              <svg viewBox="0 0 760 560" preserveAspectRatio="xMidYMid meet">
+                {insilode.flow.edges.map(([a, b, guess]) => (
+                  <path key={a + b} className={`edge${guess ? " guess" : ""}`} d={wire(nodes[a], nodes[b])} />
+                ))}
+                {insilode.flow.nodes.map(n => (
+                  <g key={n.id} className="node" data-id={n.id} transform={`translate(${n.x} ${n.y})`}>
+                    <rect width={n.w} height={NODE_H} rx={10} />
+                    <text x={16} y={28} className="t">{n.t}</text>
+                    <text x={16} y={47}>{n.s}</text>
+                  </g>
+                ))}
+                <text x={470} y={340} className="tagl">↳ ACROSS A QUEUE</text>
+                <circle r={14} className="halo" />
+                <circle r={5} className="pulse" />
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section className="numbers" data-name="Numbers" data-tone="light">
+          <p className="scene-label mono">04 · Day job, in numbers</p>
+          <h3>The systems I work on are used by a lot of people.</h3>
+          <div className="grid4">
+            {numbers.map(n => {
+              const end = countText(n.to, n);
+              return (
+                <div key={n.text}>
+                  <div className="big" data-to={n.to} data-format={n.format} data-suffix={n.suffix} data-decimals={n.decimals}>
+                    {end.main}{end.sup && <sup>{end.sup}</sup>}
+                  </div>
+                  <p>{n.text}</p>
+                </div>
+              );
+            })}
+          </div>
+          <p className="day mono">Software developer at Turkcell since 2025</p>
+        </section>
+
+        <section className="starter" data-name="Method" data-tone="light">
+          <p className="scene-label mono">05 · How I work with AI</p>
+          <div className="rules">
+            {starter.rules.map(r => <p key={r} className="rule">{r}<span>.</span></p>)}
+          </div>
+          <div className="foot">
+            <p>{starter.text}</p>
+            <a className="cta dark" href={starter.href} target="_blank" rel="noopener">claude-starter on GitHub <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+
+        <section className="timeline" id="path" data-name="Path">
+          <div className="stick">
+            <h3>The path so far</h3>
+            <div className="track">
+              <div className="line"><i /></div>
+              {path.map(p => (
+                <div key={p.year} className="stop"><div className="yr">{p.year}</div><h4>{p.title}</h4><p>{p.text}</p></div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="tools" data-name="Tools">
+          <p className="scene-label mono">07 · What I build with</p>
+          {tools.map((row, i) => (
+            <div key={i} className={`row${row.outline ? " out" : ""}`} data-speed={row.speed}>
+              {[...row.items, ...row.items].map((t, j) => <span key={j} className={row.hot.includes(t) ? "hot" : undefined}>{t}</span>)}
+            </div>
+          ))}
+          <div className="langs mono">
+            {languages.map(l => <span key={l}>{l}</span>)}
+            <a href={L.resume} target="_blank" rel="noopener">Full resume (PDF) →</a>
+          </div>
+        </section>
+
+        <section className="contact" id="contact" data-name="Contact" data-tone="light">
+          <p className="scene-label mono">08 · Contact</p>
           <div>
-            <p className="label">Contact</p>
-            <a className="mail" href={`mailto:${L.email}`}>{L.email}</a>
-            <p className="links">
-              <a href={L.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+            <h2>Write<br />to me</h2>
+            <a className="mail" href={`mailto:${L.email}`} aria-label={`Email ${L.email}`}>
+              {[...L.email].map((c, i) => <span key={i} className="ch" aria-hidden="true">{c}</span>)}
+            </a>
+            <div className="links">
               <a href={L.github} target="_blank" rel="noopener">GitHub</a>
+              <a href={L.linkedin} target="_blank" rel="noopener">LinkedIn</a>
               <a href={L.medium} target="_blank" rel="noopener">Medium</a>
               <a href={L.resume} target="_blank" rel="noopener">Resume</a>
-            </p>
-            <p className="where">Istanbul, UTC+3</p>
+            </div>
           </div>
+          <div className="end mono"><span>© 2026 {site.name}</span><span>{site.city}</span></div>
         </section>
       </main>
-    </>
-  );
-}
-
-function Row({ dt, dd, small }: { dt: string; dd: React.ReactNode; small?: string }) {
-  return (
-    <>
-      <dt>{dt}</dt>
-      <dd>
-        {dd}
-        {small ? <small>{small}</small> : null}
-      </dd>
+      <Motion />
     </>
   );
 }
