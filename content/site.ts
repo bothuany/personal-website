@@ -4,8 +4,9 @@ export const site = {
   name: "Recep Batuhan Dikmen",
   mark: "RBD",
   city: "Istanbul",
+  tagline: "Backend at scale, AI in the loop.",
   description:
-    "Recep Batuhan Dikmen, software developer in Istanbul. Builds Insilode, an editor that shows how code runs.",
+    "Recep Batuhan Dikmen, software developer in Istanbul. Backend at scale, AI in the loop: .NET and Java systems for tens of thousands of users, built with Claude Code, MCP servers and agents.",
   url: "https://recepbatuhandikmen.vercel.app",
   links: {
     email: "rbdikmen@gmail.com",
@@ -16,19 +17,35 @@ export const site = {
   },
 };
 
-// The one sentence the second scene lights up; the last words glow.
-export const belief = { lead: "Most tools show you what code says. I build the ones that show", hot: "what it does." };
+// The sentence the second scene lights up word by word; the last words glow.
+export const belief = { lead: "Backends that tens of thousands of people use every day, built with", hot: "AI in the loop." };
 
-export const insilode = {
-  tagline: "Every code editor shows your files.",
-  tagHot: "Insilode shows how your code runs.",
-  features: [
-    "Follow a request across services, queues and databases, card by card.",
-    "Review what an AI agent changed, drawn on the flow instead of buried in a diff.",
-    "Run Claude Code and Codex side by side, and see which one needs you.",
+export const backend = {
+  title: "Backend at scale",
+  intro: "My day job is Turkcell: systems a lot of people lean on, in .NET and Java.",
+  numbers: [
+    { to: 50000, format: "k", text: "employees learn on TAG. I’m moving it from Java and JSF to .NET 10." },
+    { to: 20, suffix: "%", text: "faster queries after I rebuilt the core APIs of Geleceği Yazanlar’s evaluation platform." },
+    { to: 5, suffix: "+", text: "retail chains, and hundreds of their stores, ran on my full-stack work at ATP." },
+  ] as { to: number; format?: "k"; suffix?: string; decimals?: number; text: string }[],
+};
+
+export const ai = {
+  title: "AI in the loop",
+  points: [
+    "I build with Claude Code every day, and I build what it needs.",
+    "MCP servers, so agents read our real Oracle schema instead of guessing it.",
+    "Agent skills and a Claude Code setup I open-sourced, claude-starter.",
   ],
-  links: { try: "https://insilode.dev/try/", github: "https://github.com/bothuany/insilode" },
-  // The drawing on the right: one request, through two services and a queue.
+  insilode: {
+    lead: "And the editor I wanted for this way of working:",
+    name: "Insilode",
+    text: "It shows how your code runs, and what an agent changed, drawn on the flow. Open source, built on VS Code.",
+    try: "https://insilode.dev/try/",
+    github: "https://github.com/bothuany/insilode",
+  },
+  starter: "https://github.com/bothuany/claude-starter",
+  // The drawing on the right: one request, through two services and a queue, as Insilode draws it.
   flow: {
     nodes: [
       { id: "req", x: 0, y: 250, w: 150, t: "POST /orders", s: "request" },
@@ -43,21 +60,8 @@ export const insilode = {
   },
 };
 
-export const numbers: { to: number; format?: "k"; suffix?: string; decimals?: number; text: string }[] = [
-  { to: 50000, format: "k", text: "employees learn on TAG, the platform I’m moving from Java to .NET 10." },
-  { to: 20, suffix: "%", text: "faster queries on the core APIs I built for Geleceği Yazanlar." },
-  { to: 5, suffix: "+", text: "retail chains and hundreds of their stores ran on my full-stack work at ATP." },
-  { to: 3.65, decimals: 2, text: "GPA in computer engineering, Eskişehir Technical University, honor student." },
-];
-
-export const starter = {
-  rules: ["Ask", "Plan", "Build clean", "Review fresh"],
-  text: "That’s claude-starter, the Claude Code setup I open-sourced: it asks before it assumes, writes the plan to a file, builds in a clean context and reviews with fresh eyes.",
-  href: "https://github.com/bothuany/claude-starter",
-};
-
 export const path = [
-  { year: "2020", title: "Eskişehir Technical University", text: "BSc computer engineering. Graduated in 2024 with a 3.65 GPA." },
+  { year: "2020", title: "Eskişehir Technical University", text: "BSc computer engineering. Graduated in 2024 with a 3.65 GPA, honor student." },
   { year: "2023", title: "Internships", text: "Softtech, OBSS and TUSAŞ during university, then Eczacıbaşı Bilişim, where I built a Teams bot in .NET and React." },
   { year: "2024", title: "ATP · Junior developer", text: "Full-stack work for five retail clients, and one dashboard to manage users across all their apps." },
   { year: "2025", title: "Turkcell · Associate developer", text: "Core APIs of the Geleceği Yazanlar evaluation platform. MCP servers for our own tooling." },
@@ -67,8 +71,8 @@ export const path = [
 
 // Rows of tools that drift past; `hot` ones are drawn in the signal colour.
 export const tools: { speed: number; outline?: boolean; items: string[]; hot: string[] }[] = [
-  { speed: -1, items: ["C#", ".NET", "Java", "Spring Boot", "TypeScript", "React", "Angular"], hot: [".NET"] },
-  { speed: 1, outline: true, items: ["Kafka", "PostgreSQL", "Oracle", "Redis", "Docker", "Kubernetes"], hot: [] },
-  { speed: -0.7, items: ["Claude Code", "MCP", "Agent skills", "Playwright"], hot: ["MCP"] },
+  { speed: -1, items: ["C#", ".NET", "Java", "Spring Boot", "Kafka", "RabbitMQ", "REST"], hot: [".NET", "Java"] },
+  { speed: 1, outline: true, items: ["PostgreSQL", "Oracle", "MsSQL", "Redis", "Docker", "Kubernetes"], hot: [] },
+  { speed: -0.7, items: ["Claude Code", "MCP", "Agent skills", "TypeScript", "React"], hot: ["Claude Code", "MCP"] },
 ];
 export const languages = ["Turkish · native", "English · full professional"];

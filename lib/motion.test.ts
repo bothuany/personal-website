@@ -1,13 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { countText, wire, stepIn } from "./motion.ts";
-import { numbers, insilode } from "../content/site.ts";
+import { backend, ai } from "../content/site.ts";
 
 test("counters land on the figures the CV states", () => {
-  assert.deepEqual(numbers.map(n => countText(n.to, n)), [
-    { main: "50K", sup: "+" }, { main: "20", sup: "%" }, { main: "5", sup: "+" }, { main: "3.65", sup: "" },
+  assert.deepEqual(backend.numbers.map(n => countText(n.to, n)), [
+    { main: "50K", sup: "+" }, { main: "20", sup: "%" }, { main: "5", sup: "+" },
   ]);
-  assert.deepEqual(countText(0, numbers[3]), { main: "0.00", sup: "" });
+  assert.deepEqual(countText(0, { to: 3.65, decimals: 2 }), { main: "0.00", sup: "" });
 });
 
 test("wires go sideways to the right, or down to a node below", () => {
@@ -16,8 +16,8 @@ test("wires go sideways to the right, or down to a node below", () => {
 });
 
 test("every edge in the flow joins two nodes that exist", () => {
-  const ids = new Set(insilode.flow.nodes.map(n => n.id));
-  for (const [a, b] of insilode.flow.edges) assert.ok(ids.has(a) && ids.has(b), `${a} → ${b}`);
+  const ids = new Set(ai.flow.nodes.map(n => n.id));
+  for (const [a, b] of ai.flow.edges) assert.ok(ids.has(a) && ids.has(b), `${a} → ${b}`);
 });
 
 test("stepIn clamps", () => {

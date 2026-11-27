@@ -56,6 +56,11 @@ body[data-tone="light"] .top, body[data-tone="light"] .meter { color: var(--ink)
 section { position: relative; }
 .scene-label { position: absolute; top: 90px; left: var(--pad); color: var(--mute); z-index: 2; margin: 0; }
 
+.insilode .also { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); max-width: 460px; }
+.insilode .also p { margin: 0; color: var(--mute); font-size: 15px; }
+.insilode .also b { color: var(--paper); font-weight: 600; }
+.insilode .also .cta { margin-top: 18px; }
+.flow .cap-l { fill: var(--mute); font: 500 11px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
 .cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 14px 20px; border: 1px solid var(--paper); border-radius: 999px; font-weight: 600; transition: background 0.3s, color 0.3s; }
 .cta:hover { background: var(--paper); color: var(--ink); }
 .cta.ghost { margin-left: 10px; border-color: #3a3a40; }
@@ -69,7 +74,7 @@ section { position: relative; }
 .hero .cap { position: absolute; left: var(--pad); right: var(--pad); bottom: clamp(56px, 10vh, 104px); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; z-index: 2; }
 .hero h1 { margin: 0; font: 800 clamp(30px, 4.2vw, 64px)/0.95 var(--sans); font-variation-settings: "wdth" 112; letter-spacing: -0.02em; max-width: 12ch; }
 .hero .cap p { margin: 0; max-width: 340px; color: var(--mute); font-size: 15px; }
-.hero .cap p b { color: var(--paper); font-weight: 500; }
+.hero .cap p.tagline { margin: 16px 0 0; max-width: none; color: var(--signal); font: 600 clamp(19px, 2vw, 32px)/1.15 var(--sans); letter-spacing: -0.01em; }
 html:not(.js) .hero { height: auto; }
 html:not(.js) .hero .stick { position: relative; height: 70vh; }
 
@@ -87,7 +92,7 @@ html.js .say .word.hot.lit { color: var(--signal); }
 .insilode .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; display: grid; grid-template-columns: minmax(320px, 0.9fr) 1.3fr; gap: 3vw; align-items: center; padding: 90px var(--pad) 70px; }
 .insilode .left { position: relative; z-index: 2; }
 .insilode .kicker { color: var(--signal); margin: 0 0 18px; }
-.insilode h2 { margin: 0; font: 900 clamp(64px, 10.5vw, 190px)/0.82 var(--sans); font-variation-settings: "wdth" 62; letter-spacing: -0.035em; text-transform: uppercase; }
+.insilode h2 { margin: 0; font: 900 clamp(56px, 8.4vw, 160px)/0.84 var(--sans); font-variation-settings: "wdth" 62; letter-spacing: -0.035em; text-transform: uppercase; }
 .insilode .tag { margin: 22px 0 0; font: 500 clamp(18px, 1.7vw, 25px)/1.3 var(--sans); max-width: 26ch; }
 .insilode .tag em { color: var(--signal); font-style: normal; }
 .feats { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 14px; max-width: 440px; }
@@ -116,6 +121,8 @@ html.js .flow .tagl { opacity: 0; transition: opacity 0.5s; }
 .numbers { background: var(--paper); color: var(--ink); padding: 140px var(--pad) 120px; }
 html.js .numbers { clip-path: circle(0% at 50% 50%); }
 .numbers .scene-label { color: var(--dim); }
+.numbers .intro-line { margin: -44px 0 60px; max-width: 46ch; font-size: clamp(17px, 1.4vw, 21px); color: #36332e; }
+.grid4.three { grid-template-columns: repeat(3, 1fr); }
 .numbers h3 { margin: 0 0 70px; font: 800 clamp(30px, 4vw, 62px)/1 var(--sans); font-variation-settings: "wdth" 112; letter-spacing: -0.02em; max-width: 18ch; }
 .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
 .grid4 > div { padding: 26px 20px 10px 0; border-right: 1px solid rgba(0, 0, 0, 0.14); }
@@ -125,15 +132,6 @@ html.js .numbers { clip-path: circle(0% at 50% 50%); }
 .big sup { font-size: 0.4em; vertical-align: top; margin-left: 4px; color: var(--signal); }
 .grid4 p { margin: 16px 0 0; font-size: 15px; max-width: 26ch; color: #36332e; }
 .numbers .day { margin: 60px 0 0; color: var(--dim); }
-
-/* 05 claude-starter */
-.starter { background: var(--paper); color: var(--ink); padding: 120px var(--pad) 140px; overflow: hidden; }
-.starter .scene-label { color: var(--dim); }
-.rule { margin: 0; font: 900 clamp(46px, 8.4vw, 160px)/0.88 var(--sans); letter-spacing: -0.04em; text-transform: uppercase; font-variation-settings: "wdth" 125; white-space: nowrap; }
-.rule:nth-child(even) { text-align: right; }
-.rule span { color: var(--signal); }
-.starter .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-top: 60px; flex-wrap: wrap; }
-.starter .foot p { margin: 0; max-width: 46ch; font-size: 17px; }
 
 /* 06 Path */
 .timeline { height: 360vh; }
@@ -184,8 +182,7 @@ html.js .stop.on::before { background: var(--signal); border-color: var(--signal
   .track { position: relative; top: 0; flex-direction: column; gap: 46px; transform: none !important; }
   .track .line { display: none; }
   .stop { width: auto; padding: 24px var(--pad) 0 0; }
-  .rule { white-space: normal; }
-  .rule:nth-child(even) { text-align: left; }
+  .grid4.three { grid-template-columns: 1fr; }
   .meter .bar { width: 60px; }
   .top nav { gap: 16px; }
   .cta.ghost { margin-left: 6px; }

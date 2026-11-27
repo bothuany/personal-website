@@ -159,12 +159,6 @@ export default function Motion() {
         ScrollTrigger.create({ trigger: b, start: "top 85%", once: true, onEnter: () => gsap.to(o, { v: c.to, duration: 1.8, ease: "power3.out", onUpdate: () => paint(o.v) }) });
       }
 
-      // ---------- 05: four rules that stretch into place ----------
-      $$(".rule").forEach((r, i) => {
-        gsap.fromTo(r, { fontVariationSettings: '"wdth" 62', xPercent: i % 2 ? 12 : -12, opacity: 0.15 },
-          { fontVariationSettings: '"wdth" 125', xPercent: 0, opacity: 1, ease: "none", scrollTrigger: { trigger: r, start: "top 95%", end: "top 45%", scrub: true } });
-      });
-
       // ---------- 06: the path runs sideways on wide screens ----------
       const stops = $$(".stop");
       mm.add("(min-width: 861px)", () => {
